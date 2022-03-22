@@ -10,6 +10,9 @@
 @section('content')
     <div class="container">
         <h3>Elenco di tutti i fumetti <strong>DC COMICS</strong></h3>
+        <a href="{{ route('comics.create') }}" class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary">Crea un nuovo fumetto</button>
+        </a>
     </div>
 
     <div class="d-flex flex-wrap container my-3">
