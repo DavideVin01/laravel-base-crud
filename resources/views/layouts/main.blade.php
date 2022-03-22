@@ -15,10 +15,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">HOME</a>
+                        <a class="nav-link text-white" href="{{ route('home') }}">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">COMICS</a>
+                        <a class="nav-link text-white" href="{{ route('comics.index') }}">COMICS</a>
                     </li>
                 </ul>
             </div>
