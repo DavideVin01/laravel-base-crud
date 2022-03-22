@@ -1,4 +1,6 @@
 @extends('layouts.main')
-@section('title', 'home')
+@section('page-title', 'home')
 
-<h1>HOME</h1>
+@section('title')
+    <h1>Home</h1>
+@endsection
