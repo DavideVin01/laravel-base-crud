@@ -25,6 +25,8 @@
         </div>
     </nav>
     @yield('title')
+
+    @yield('content')
 </body>
 
 </html>
