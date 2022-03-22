@@ -39,6 +39,14 @@
                 <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci una data">
             </div>
         </div>
+        <div class="mb-3">
+            <label for="thumb" class="form-label">URL Immagine</label>
+            <input type="text" class="form-control" id="thumb" name="thumb" placeholder="Inserisci l'URL dell'immagine">
+        </div>
+
+        <a href="{{ route('comics.store') }}" class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary">Crea</button>
+        </a>
 
     </div>
 @endsection
