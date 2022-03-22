@@ -18,17 +18,14 @@
                 <img src="{{ $comic['thumb'] }}" class="card-img-top" alt="{{ $comic['series'] }}">
                 <div class="card-body">
                     <h5 class="card-title"><strong>Titolo: </strong>{{ $comic['title'] }}</h5>
-                    <p class="card-text h-25"><strong>Descrizione: </strong>{{ Str::limit($comic->description, 200) }}</p>
+                    <p class="card-text h-25"><strong>Descrizione: </strong>{{ Str::limit($comic->description, 150) }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Prezzo: </strong> ${{ $comic['price'] }}</li>
-                    <li class="list-group-item"><strong>Data di vendita: </strong>{{ $comic['sale_date'] }}</li>
-                    <li class="list-group-item"><strong>Serie: </strong>{{ $comic['series'] }}</li>
-                    <li class="list-group-item"><strong>Tipo: </strong>{{ $comic['type'] }}</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <a href="{{ route('comics.show', $comic->id) }}" class="text-info fw-bold card-link">Vedi
+                        dettagli</a>
                 </div>
             </div>
         @endforeach
