@@ -15,17 +15,16 @@
     <div class="d-flex flex-wrap container my-3">
         @foreach ($comics as $comic)
             <div class="card" style="width: 18rem;">
-                <img src="{{ $comic['thumb'] }}" class="card-img-top" alt="...">
+                <img src="{{ $comic['thumb'] }}" class="card-img-top" alt="{{ $comic['series'] }}">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the
-                        card's content.</p>
+                    <h5 class="card-title"><strong>Titolo: </strong>{{ $comic['title'] }}</h5>
+                    <p class="card-text h-25"><strong>Descrizione: </strong>{{ Str::limit($comic->description, 200) }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item"><strong>Prezzo: </strong> ${{ $comic['price'] }}</li>
+                    <li class="list-group-item"><strong>Data di vendita: </strong>{{ $comic['sale_date'] }}</li>
+                    <li class="list-group-item"><strong>Serie: </strong>{{ $comic['series'] }}</li>
+                    <li class="list-group-item"><strong>Tipo: </strong>{{ $comic['type'] }}</li>
                 </ul>
                 <div class="card-body">
                     <a href="#" class="card-link">Card link</a>
