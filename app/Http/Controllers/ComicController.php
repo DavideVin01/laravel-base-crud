@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Comic;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -41,7 +42,7 @@ class ComicController extends Controller
     {
 
         $request->validate([
-            'title' => 'required|string|unique:comics|max:50|min:5',
+            'title' => ['required', 'string', Rule::unique('comics'), 'max:50', 'min:5'],
             'series' => 'required|string|unique:comics|max:50|min:5',
             'price' => 'required|numeric|min:1',
         ], [
@@ -94,15 +95,15 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         $request->validate([
-            'title' => 'required|string|unique:comics|max:50|min:5',
-            'series' => 'required|string|unique:comics|max:50|min:5',
+            'title' => ['required', 'string', Rule::unique('comics')->ignore($comic->id), 'max:50', 'min:5'],
+            'series' => ['required', 'string', Rule::unique('comics')->ignore($comic->id), 'max:50', 'min:5'],
             'price' => 'required|numeric|min:1',
         ], [
             'required' => 'Il campo :attribute è obbligatorio.',
-            'price.min' => 'Il minimo da inserire è di :min',
-            'title.min' => 'Il minimo di caratteri da inserire è di :min',
-            'title.unique' => "Il fumetto $request->title esiste già",
-            'series.unique' => "Il fumetto $request->series esiste già",
+            'price.min' => 'Il minimo da inserire è di :min.',
+            'title.min' => 'Il minimo di caratteri da inserire è di :min.',
+            'title.unique' => "Il fumetto $request->title esiste già.",
+            'series.unique' => "Il fumetto $request->series esiste già.",
         ]);
 
         $data = $request->all();
