@@ -17,11 +17,14 @@
                     <div class="my-2"><strong>Serie: </strong>{{ $comic->series }}</div>
                     <div class="my-2"><strong>Data di vendita: </strong>{{ $comic->sale_date }}</div>
                 </div>
-                <form action="{{ route('comics.edit', $comic->id) }}" method="get">
-                    @csrf
-                    @method('PUT')
-                    <button type="submit" class="btn btn-primary">Modifica</button>
-                </form>
+                <div class="d-flex">
+                    <form action="{{ route('comics.edit', $comic->id) }}" method="get">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-sm btn-warning text-white shadow-sm me-2">Modifica</button>
+                    </form>
+                    @include('includes.delete')
+                </div>
             </div>
         </div>
     </div>

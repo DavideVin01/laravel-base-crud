@@ -10,8 +10,8 @@
 @section('content')
     <div class="container">
         <h3>Elenco di tutti i fumetti <strong>DC COMICS</strong></h3>
-        <a href="{{ route('comics.create') }}" class="d-flex justify-content-end">
-            <button type="button" class="btn btn-primary">Crea un nuovo fumetto</button>
+        <a href="{{ route('comics.create') }}" class="d-flex">
+            <button type="button" class="btn btn-primary shadow-sm">Crea un nuovo fumetto</button>
         </a>
     </div>
 
@@ -29,7 +29,12 @@
                 <div class="card-body">
                     <a href="{{ route('comics.show', $comic->id) }}" class="text-info fw-bold card-link">Vedi
                         dettagli</a>
-                    <a href="{{ route('comics.edit', $comic->id) }}" class="text-info fw-bold card-link">Modifica</a>
+                </div>
+                <div class="card-body d-flex justify-content-between">
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="text-info fw-bold card-link">
+                        <button class="btn btn-sm btn-warning text-white shadow-sm">Modifica</button>
+                    </a>
+                    @include('includes.delete')
                 </div>
             </div>
         @endforeach
