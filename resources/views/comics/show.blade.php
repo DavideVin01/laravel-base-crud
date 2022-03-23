@@ -17,6 +17,11 @@
                     <div class="my-2"><strong>Serie: </strong>{{ $comic->series }}</div>
                     <div class="my-2"><strong>Data di vendita: </strong>{{ $comic->sale_date }}</div>
                 </div>
+                <form action="{{ route('comics.edit', $comic->id) }}" method="get">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-primary">Modifica</button>
+                </form>
             </div>
         </div>
     </div>

@@ -29,6 +29,7 @@
                 <div class="card-body">
                     <a href="{{ route('comics.show', $comic->id) }}" class="text-info fw-bold card-link">Vedi
                         dettagli</a>
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="text-info fw-bold card-link">Modifica</a>
                 </div>
             </div>
         @endforeach
