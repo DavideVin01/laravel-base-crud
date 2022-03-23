@@ -23,9 +23,19 @@
                         @method('PUT')
                         <button type="submit" class="btn btn-sm btn-warning text-white shadow-sm me-2">Modifica</button>
                     </form>
-                    @include('includes.delete')
+                    <form action="{{ route('comics.destroy', $comic->id) }}" method="post" class="delete-form"
+                        data-name="{{ $comic->series }}">
+                        @csrf
+                        @method('delete')
+
+                        <input type="submit" value="Cancella" class="btn btn-sm btn-danger shadow-sm">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('additional-scripts')
+    <script src="{{ asset('js/delete-form.js') }}"></script>
 @endsection

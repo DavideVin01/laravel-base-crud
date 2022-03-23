@@ -13,6 +13,7 @@
         <a href="{{ route('comics.create') }}" class="d-flex">
             <button type="button" class="btn btn-primary shadow-sm">Crea un nuovo fumetto</button>
         </a>
+        @include('includes.alert')
     </div>
 
     <div class="d-flex flex-wrap container my-3">
@@ -34,9 +35,20 @@
                     <a href="{{ route('comics.edit', $comic->id) }}" class="text-info fw-bold card-link">
                         <button class="btn btn-sm btn-warning text-white shadow-sm">Modifica</button>
                     </a>
-                    @include('includes.delete')
+                    <form action="{{ route('comics.destroy', $comic->id) }}" method="post" class="delete-form"
+                        data-name="{{ $comic->series }}">
+                        @csrf
+                        @method('delete')
+
+                        <input type="submit" value="Cancella" class="btn btn-sm btn-danger shadow-sm">
+                    </form>
+
                 </div>
             </div>
         @endforeach
     </div>
+@endsection
+
+@section('additional-scripts')
+    <script src="{{ asset('js/delete-form.js') }}"></script>
 @endsection

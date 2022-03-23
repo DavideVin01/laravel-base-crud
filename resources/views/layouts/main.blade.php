@@ -24,9 +24,12 @@
             </div>
         </div>
     </nav>
+
     @yield('title')
 
     @yield('content')
+
+    @yield('additional-scripts')
 </body>
 
 </html>

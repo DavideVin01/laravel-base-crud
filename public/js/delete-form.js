@@ -93,7 +93,15 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+var deleteForms = document.querySelectorAll('.delete-form');
+deleteForms.forEach(function (form) {
+  var name = form.getAttribute('data-name');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var accept = confirm("Sei sicuro di voler eliminare ".concat(name, "?"));
+    if (accept) e.target.submit();
+  });
+});
 
 /***/ }),
 

@@ -95,6 +95,6 @@ class ComicController extends Controller
     {
         $comic->delete();
 
-        return redirect()->route('comics.index')->with('message', 'sei sicuro di voler cancellare questo fumetto?');
+        return redirect()->route('comics.index')->with('message', "$comic->series eliminato con successo.")->with('type', 'success');
     }
 }
