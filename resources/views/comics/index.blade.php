@@ -17,11 +17,11 @@
 
     <div class="d-flex flex-wrap container my-3">
         @foreach ($comics as $comic)
-            <div class="card" style="width: 18rem;">
+            <div class="card m-2" style="width: 18rem;">
                 <img src="{{ $comic['thumb'] }}" class="card-img-top" alt="{{ $comic['series'] }}">
                 <div class="card-body">
                     <h5 class="card-title"><strong>Titolo: </strong>{{ $comic['title'] }}</h5>
-                    <p class="card-text h-25"><strong>Descrizione: </strong>{{ Str::limit($comic->description, 150) }}</p>
+                    <p class="card-text"><strong>Descrizione: </strong>{{ Str::limit($comic->description, 100) }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Prezzo: </strong> ${{ $comic['price'] }}</li>
